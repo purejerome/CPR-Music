@@ -6,7 +6,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Layout from '../components/layout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Container } from 'react-bootstrap';
+import { Container, FigureCaption } from 'react-bootstrap';
 import {
   FaComment,
   FaLaughBeam,
@@ -25,13 +25,28 @@ function Index() {
           <h1 className="mt-3">Welcome to Music CPR</h1>
         </div>
         <div className={styles.higher}>
-          <p>
+          {/* <p>
             MusicCPR is a free platform that facilitates music teachers'
             collection of individual student achievement data that aligns with
             ensemble repertoire and artistic processes (create, perform,
             respond, connect) described in National Standards for Arts
             Education.
-          </p>
+          </p> */}
+          <figure style={{ width: '30vw', margin: '0' }}>
+            <img
+              src="MusicCPR-logo.png"
+              style={{ width: '100%', height: 'auto' }}
+            ></img>
+            <figcaption
+              style={{
+                textAlign: 'center',
+                margin: '1rem',
+                overflow: 'hidden',
+              }}
+            >
+              Music Should be for Everyone!
+            </figcaption>
+          </figure>
         </div>
       </Layout>
     </main>

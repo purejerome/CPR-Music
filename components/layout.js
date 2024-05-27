@@ -1,4 +1,3 @@
-import Container from 'react-bootstrap/Container';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
@@ -8,6 +7,7 @@ import Navigation from './nav';
 import styles from './layout.module.css';
 import { getUserProfile, gotUser } from '../actions';
 import { Spinner } from 'react-bootstrap';
+import React, { Fragment } from 'react';
 
 const PUBLIC_PATHS = ['/', '/about', '/auth/signin', '/api/auth/signout'];
 
@@ -63,18 +63,22 @@ export default function Layout({ children }) {
           content="MusicCPR facilitates music teachers' collection of individual student achievement data that aligns with ensemble repertoire and artistic processes."
         />
         <meta name="twitter:image" content="/MusicCPR-logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <Navigation />
       {(!PUBLIC_PATHS.includes(router.pathname) && userLoaded && token) ||
       PUBLIC_PATHS.includes(router.pathname) ? (
-        // <main className={styles.para}>
-        //   <Navigation />
-        //   {children}
-        // </main>
-        // <Container fluid className={styles.container}>
         <>{children}</>
       ) : (
-        // {/* </Container> */}
         <Spinner
           as="span"
           animation="border"

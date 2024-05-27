@@ -5,15 +5,15 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Layout from '../../components/layout';
-import { Alert } from 'react-bootstrap';
+import { Alert, Container } from 'react-bootstrap';
 import { useState } from 'react';
 
 export default function SignIn({ csrfToken }) {
   const router = useRouter();
   const { error } = useRouter().query;
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,42 +21,45 @@ export default function SignIn({ csrfToken }) {
       redirect: false,
       username,
       password,
-    })
-    router.push('/courses')
-
-  }
+    });
+    router.push('/courses');
+  };
 
   return (
     <Layout>
-      <Form
-        className="mt-3"
-        onSubmit={handleSubmit}
-      >
-        <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-        <Form.Group as={Row} className="mb-3" controlId="formUsername">
-          <Form.Label column sm={2}>
-            Username
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control type="text" name="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-          </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formPassword">
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Col>
-        </Form.Group>
-        <Button type="submit">Sign in</Button>
-        {error && <SignInError error={error} />}
-      </Form>
+      <Container fluid>
+        <Form className="mt-3" onSubmit={handleSubmit}>
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+          <Form.Group as={Row} className="mb-3" controlId="formUsername">
+            <Form.Label column sm={2}>
+              Username
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3" controlId="formPassword">
+            <Form.Label column sm={2}>
+              Password
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Col>
+          </Form.Group>
+          <Button type="submit">Sign in</Button>
+          {error && <SignInError error={error} />}
+        </Form>
+      </Container>
     </Layout>
   );
 }
@@ -91,7 +94,9 @@ function SignInError({ error = errors.default }) {
     <Alert variant="danger">
       {errorMessage}{' '}
       {error === 'CredentialsSignin' && (
-        <a href={`${process.env.NEXT_PUBLIC_BACKEND_HOST}/accounts/password/reset/`}>
+        <a
+          href={`${process.env.NEXT_PUBLIC_BACKEND_HOST}/accounts/password/reset/`}
+        >
           Forgot your password?
         </a>
       )}

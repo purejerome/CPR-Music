@@ -1,8 +1,0 @@
-.para{
-    height: 100vh;
-    padding: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    perspective: 10px;
-    width: 100vw;
-}
