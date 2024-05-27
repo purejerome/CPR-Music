@@ -7,38 +7,67 @@ import Layout from '../components/layout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container } from 'react-bootstrap';
-import { FaComment, FaLaughBeam, FaMicrophone, FaMicrophoneAlt } from 'react-icons/fa';
+import {
+  FaComment,
+  FaLaughBeam,
+  FaMicrophone,
+  FaMicrophoneAlt,
+} from 'react-icons/fa';
 import { FaTools } from 'react-icons/fa';
 import { FaRulerCombined } from 'react-icons/fa';
+import styles from '../styles/index.module.css';
 
 function Index() {
   return (
-    <Layout>
-      <h1 className="mt-3">Welcome to Music CPR</h1>
-      <Row>
-        <Col>
+    // <Layout>
+      <main className={styles.para}>
+        <Layout>
+        <div className={styles.header}>
+          <h1 className="mt-3">Welcome to Music CPR</h1>
+        </div>
+        <div className={styles.higher}>
           <p>
-            MusicCPR is a free platform that facilitates music
-            teachers' collection of individual student achievement data that
-            aligns with ensemble repertoire and artistic processes (create,
-            perform, respond, connect) described in National Standards for Arts
+            MusicCPR is a free platform that facilitates music teachers'
+            collection of individual student achievement data that aligns with
+            ensemble repertoire and artistic processes (create, perform,
+            respond, connect) described in National Standards for Arts
             Education.
           </p>
-        </Col>
+        </div>
+        </Layout>
+      </main>
+      {/* <div style={{ display: 'flex' }}>
+        <div className="text-white bg-dark">
+          <h2 className="display-6 mt-3 ">Students</h2>
+          <ul>
+            <li>Free</li>
+            <li>Web App</li>
+            <li>Connect with the repertoire</li>
+            <li>Perform Activities for pieces assigned by your teacher</li>
+            <li>Compose countermelodies</li>
+            <li>Reflect on your experiences</li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="display-6 mt-3">Teachers</h2>
+          <ul>
+            <li>Free</li>
+            <li>Standards-aligned</li>
+            <li>Web-based</li>
+            <li>Assign activities</li>
+            <li>
+              Grade students' work
+              <ul>
+                <li>give individual performance feedback</li>
+                <li>export for use in other tools</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div> */}
+      {/* <Row style={{ backgroundColor: 'white' }}>
         <Col
-          sm={2}
-          className="d-none d-sm-flex justify-content-center align-items-center"
-        >
-          <FaLaughBeam size="4rem" className="text-info" />
-        </Col>
-      </Row>
-
-      <Row
-        className="rounded border border-3"
-        style={{ borderRadius: '1rem !important' }}
-      >
-        <Col
-          className="text-white bg-dark rounded rounded-start border"
+          className="text-white bg-dark"
           style={{
             borderTopLeftRadius: '1rem !important',
             borderBottomLeftRadius: '1rem !important',
@@ -88,7 +117,7 @@ function Index() {
             activities grounded in large ensemble repertoire.
           </p>
         </Col>
-      </Row>
+      </Row> */}
       {/* <h2 className="display-6 mt-5">Standards-Based Music Education</h2>
       <p>
         Teachers who provide their students with a standards-based music
@@ -105,7 +134,7 @@ function Index() {
         respond, and connect through activities grounded in large ensemble
         repertoire.
       </p> */}
-      <Row style={{ borderRadius: '1rem' }} className="mt-5 border p-3">
+      {/* <Row style={{ backgroundColor: 'white' }} className="mt-5 border p-3">
         <Col
           sm={2}
           className="d-flex justify-content-center align-items-center"
@@ -114,32 +143,33 @@ function Index() {
         </Col>
         <Col>
           <h3 className="text-primary">Individual Student Assessment Tools</h3>{' '}
-          facilitate music educators' in collecting data on each individual student's
-          achievement relative to four artistic processes (create, perform,
-          respond, connect), and to track and share their growth over time.
-        </Col>
-        {/* <Col>
-          <section>
-            <h2>Create</h2>
-            <img
-              src="screenshots/landing/Orchestra - Create.png"
-              alt="Create Activity in MusicCPR"
-              className="float-start"
-              width="450"
-            />
-            <p>
-              The Create Artistic Process is underrepresented in instrumental
-              music education. MusicCPR scaffolds teachers who may be new to
-              teaching composition in instrumental music to including it in
-              their classes. Students add notes to the music score in the
-              assignment's web page and then submit their countermelody along
-              with a recording of them performing it.
-            </p>
-          </section>
+          facilitate music educators' in collecting data on each individual
+          student's achievement relative to four artistic processes (create,
+          perform, respond, connect), and to track and share their growth over
+          time.
         </Col> */}
-      </Row>
+      {/* <Col>
+            <section>
+              <h2>Create</h2>
+              <img
+                src="screenshots/landing/Orchestra - Create.png"
+                alt="Create Activity in MusicCPR"
+                className="float-start"
+                width="450"
+              />
+              <p>
+                The Create Artistic Process is underrepresented in instrumental
+                music education. MusicCPR scaffolds teachers who may be new to
+                teaching composition in instrumental music to including it in
+                their classes. Students add notes to the music score in the
+                assignment's web page and then submit their countermelody along
+                with a recording of them performing it.
+              </p>
+            </section>
+          </Col> */}
+      {/* </Row>
       <Row
-        style={{ borderRadius: '1rem' }}
+        style={{ borderRadius: '1rem', backgroundColor: 'white' }}
         className="mt-5 bg-dark text-white p-3"
       >
         <Col className="text-end">
@@ -156,7 +186,10 @@ function Index() {
           <FaRulerCombined size="3rem" className="text-warning" />
         </Col>
       </Row>
-      <Row style={{ borderRadius: '1rem' }} className="mt-5 border p-3">
+      <Row
+        style={{ borderRadius: '1rem', backgroundColor: 'white' }}
+        className="mt-5 border p-3"
+      >
         <Col
           sm={2}
           className="d-flex justify-content-center align-items-center"
@@ -164,17 +197,17 @@ function Index() {
           <FaTools size="3rem" className="text-info" />
         </Col>
         <Col>
-          <h3 className="text-info">Perform Prompts</h3> encourage every student in
-          the ensemble &emdash; regardless of the instrument they play &emdash;
-          to learn important musical elements such as melodies and bass lines.
-          Students will not be restricted to graduating high school music only
-          having learned twelve 3rd clarinet parts; they will be able to play
-          recognizable melodies and develop understanding of the bass lines and
-          harmonies that underpin those themes.
+          <h3 className="text-info">Perform Prompts</h3> encourage every student
+          in the ensemble &emdash; regardless of the instrument they play
+          &emdash; to learn important musical elements such as melodies and bass
+          lines. Students will not be restricted to graduating high school music
+          only having learned twelve 3rd clarinet parts; they will be able to
+          play recognizable melodies and develop understanding of the bass lines
+          and harmonies that underpin those themes.
         </Col>
       </Row>
       <Row
-        style={{ borderRadius: '1rem' }}
+        style={{ borderRadius: '1rem', backgroundColor: 'white' }}
         className="mt-5 bg-dark text-white p-3"
       >
         <Col className="text-end">
@@ -192,7 +225,10 @@ function Index() {
           <FaMicrophoneAlt size="3rem" className="text-danger" />
         </Col>
       </Row>
-      <Row style={{ borderRadius: '1rem' }} className="my-5 border p-3">
+      <Row
+        style={{ borderRadius: '1rem', backgroundColor: 'white' }}
+        className="my-5 border p-3"
+      >
         <Col
           sm={2}
           className="d-flex justify-content-center align-items-center"
@@ -206,7 +242,7 @@ function Index() {
           historical contexts, and reinforce valuable literacy skills through
           organizing and sharing their reflections.
         </Col>
-      </Row>
+      </Row> */}
       {/* <Row>
         <Col>
           <section>
@@ -264,7 +300,7 @@ function Index() {
           </section>
         </Col>
       </Row> */}
-    </Layout>
+    // </Layout>
   );
 }
 
