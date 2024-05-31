@@ -111,23 +111,88 @@ function Paragraph({ children, styling }) {
     </p>
   );
 }
-
 function Index() {
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       console.log('entry: ' + entries[0]);
-  //       entries.forEach((e) => {
-  //         if (e.isIntersecting) e.target.style.opacity = 0.4;
-  //       });
-  //     },
-  //     {
-  //       threshold: 1,
-  //     }
-  //   );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.cardsShown);
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
 
-  //   observer.observe(document.querySelector('figure'));
-  // });
+    const observerL = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.infoShow);
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    const observerR = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.infoShow);
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    const observerF = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add(styles.firstShow);
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      {
+        threshold: 1,
+      }
+    );
+
+    let cards = document.querySelectorAll(`.${styles.cards}`);
+    cards.forEach((card) => {
+      card.classList.add(styles.cardsHidden);
+      observer.observe(card);
+    });
+
+    let leftInfo = document.querySelectorAll(
+      `.${styles.nodeL} .${styles.nodes}`
+    );
+    leftInfo.forEach((l) => {
+      l.classList.add(styles.infoLeftHide);
+      observerL.observe(l);
+    });
+    let rightInfo = document.querySelectorAll(
+      `.${styles.nodeR} .${styles.nodes}`
+    );
+    rightInfo.forEach((r) => {
+      r.classList.add(styles.infoRightHide);
+      observerR.observe(r);
+    });
+    let firstInfo = document.querySelector(`.${styles.nodesF}`);
+    firstInfo.classList.add(styles.firstHide);
+    observerF.observe(firstInfo);
+  });
 
   return (
     <main className={styles.para}>

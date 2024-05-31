@@ -87,7 +87,7 @@
     background-color: #BE8CEC;
 }
 
-.cards{
+.cards{ 
     text-align: center;
     border-radius: 18px;
     padding: 2rem;
@@ -97,6 +97,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.firstHide{
+    opacity: 0;
+    transition: all 1s;
+}
+
+.firstShow{
+    opacity: 1;
+}
+
+.cardsHidden{
+    opacity: 0;
+    transform: translateY(40%);
+    transition: all 1.4s;
+}
+
+.cardsShown{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.infoLeftHide{
+    opacity: 0;
+    transform: translateX(-40%);
+    transition: opacity 1s, transform 0.7s;
+}
+
+.infoRightHide{
+    opacity: 0;
+    transform: translateX(40%);
+    transition: opacity 1s, transform 0.7s;
+}
+
+.infoShow{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cards:nth-child(2){
+    transition-delay: 100ms;
+}
+.cards:nth-child(3) {
+    transition-delay: 400ms;
+}
+.cards:nth-child(4) {
+    transition-delay: 600ms;
 }
 
 .nodeL {
@@ -136,6 +183,14 @@
     }
 
     .headings4 {
+        font-size: 1.9rem;
+    }
+    
+    .nodeL .headings4{
+        font-size: 1.3rem;
+    }
+    
+    .nodeR .headings4 {
         font-size: 1.3rem;
     }
     
