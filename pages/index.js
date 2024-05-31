@@ -29,8 +29,10 @@ function ImageHolder({ children }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        marginLeft: '3rem',
-        marginRight: '3rem',
+        // marginLeft: '3rem',
+        // marginRight: '3rem',
+        // display: 'inline-block',
+        width: 'fit-content',
       }}
     >
       {children}
@@ -42,6 +44,15 @@ function InfoNode({ children, styling }) {
   // This creates info nodes to spirnkle across the screen.
   return (
     <div className={styles.nodes} style={styling}>
+      {children}
+    </div>
+  );
+}
+
+function InfoNodeF({ children, styling }) {
+  // This creates the first info node.
+  return (
+    <div className={styles.nodesF} style={styling}>
       {children}
     </div>
   );
@@ -153,35 +164,26 @@ function Index() {
                 src="MusicCPR-logo.png"
                 style={{ width: '50%', height: 'auto', minWidth: '200px' }}
               ></img>
-              <figcaption
-                style={{
-                  textAlign: 'center',
-                  margin: '1rem',
-                  overflow: 'hidden',
-                  fontSize: '2rem',
-                  fontWeight: '600',
-                }}
-              >
+              <figcaption className={styles.figcap}>
                 Music Should be for Everyone!
               </figcaption>
             </figure>
-            <InfoNode
-              styling={{
-                margin: '6rem',
-                backgroundColor: 'gray',
-                width: '50%',
-                backgroundColor: '#BE8CEC',
-              }}
-            >
-              <h3 className={styles.heading3}>
+            <InfoNodeF>
+              <h3 className={styles.heading3} style={{ color: '#3f1774' }}>
                 Standards-Based Music Education
               </h3>
-              <Paragraph style={{ margin: '2rem', marginBottom: '0' }}>
+              <Paragraph
+                styling={{
+                  margin: '1rem',
+                  marginBottom: '0',
+                  color: '#3f1774',
+                }}
+              >
                 Music CPR is a web based appilcation that faciliates and
                 educates students to create, perform, respond, and connect
                 through msuic.
               </Paragraph>
-            </InfoNode>
+            </InfoNodeF>
           </Section>
           <BackGroundColoredDiv
             styling={{
@@ -208,13 +210,14 @@ function Index() {
                   backgroundColor: '#8D45D0',
                 }}
               >
-                <Heading4>Create</Heading4>
+                <Heading4 styling={{ color: '#e9d4fd' }}>Create</Heading4>
                 <Paragraph
                   styling={{
                     flexGrow: '0.7',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
+                    color: '#e9d4fd',
                   }}
                 >
                   Learn to create music in new and unqiue ways.
@@ -226,13 +229,14 @@ function Index() {
                   backgroundColor: '#c98fff',
                 }}
               >
-                <Heading4>Perform</Heading4>
+                <Heading4 styling={{ color: '#481d6f' }}>Perform</Heading4>
                 <Paragraph
                   styling={{
                     flexGrow: '0.7',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
+                    color: '#481d6f',
                   }}
                 >
                   Master the ability to perform your own music.
@@ -244,13 +248,14 @@ function Index() {
                   backgroundColor: '#8D45D0',
                 }}
               >
-                <Heading4>Respond</Heading4>
+                <Heading4 styling={{ color: '#e9d4fd' }}>Respond</Heading4>
                 <Paragraph
                   styling={{
                     flexGrow: '0.7',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
+                    color: '#e9d4fd',
                   }}
                 >
                   Express any of your thoughts and respond to music heard.
@@ -262,13 +267,14 @@ function Index() {
                   backgroundColor: '#c98fff',
                 }}
               >
-                <Heading4>Connect</Heading4>
+                <Heading4 styling={{ color: '#481d6f' }}>Connect</Heading4>
                 <Paragraph
                   styling={{
                     flexGrow: '0.7',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
+                    color: '#481d6f',
                   }}
                 >
                   Create connections with others through the power of music.
@@ -281,15 +287,14 @@ function Index() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              paddingTop: '5rem',
+              paddingBottom: '5rem',
             }}
           >
             <LeftContain>
               <InfoNode
                 styling={{
                   backgroundColor: 'rgb(68, 9, 116)',
-                  display: 'flex',
-                  minWidth: '10vw',
-                  width: 'fit-content',
                 }}
               >
                 <ImageHolder>
@@ -298,12 +303,118 @@ function Index() {
                     style={{ color: 'rgb(169, 128, 226)' }}
                   />
                 </ImageHolder>
-                <div style={{ marginLeft: '3rem', marginRight: '3rem' }}>
+                <div className={styles.nodediv}>
                   <Heading4 styling={{ color: 'rgb(169, 128, 226)' }}>
-                    lorme
+                    Individual Student Assessment Tools
                   </Heading4>
                   <Paragraph styling={{ color: 'rgb(169, 128, 226)' }}>
-                    glade i am here
+                    Facilitate music educators' in collecting data on each
+                    individual student's achievement relative to four artistic
+                    processes, and to track and share their growth over time.
+                  </Paragraph>
+                </div>
+              </InfoNode>
+            </LeftContain>
+
+            <RightContain>
+              <InfoNode
+                styling={{
+                  backgroundColor: 'rgb(169, 128, 226)',
+                }}
+              >
+                <div className={styles.nodediv}>
+                  <Heading4 styling={{ color: 'rgb(68, 9, 116)' }}>
+                    Reliable Assessment Rubrics
+                  </Heading4>
+                  <Paragraph styling={{ color: 'rgb(68, 9, 116)' }}>
+                    Provide students, teachers, and parents with valuable
+                    information about each student’s progress to monitor and
+                    track growth.
+                  </Paragraph>
+                </div>
+                <ImageHolder>
+                  <FaRulerCombined
+                    size="3rem"
+                    style={{ color: 'rgb(68, 9, 116)' }}
+                  />
+                </ImageHolder>
+              </InfoNode>
+            </RightContain>
+
+            <LeftContain>
+              <InfoNode
+                styling={{
+                  backgroundColor: 'rgb(68, 9, 116)',
+                }}
+              >
+                <ImageHolder>
+                  <FaTools
+                    size="3rem"
+                    style={{ color: 'rgb(169, 128, 226)' }}
+                  />
+                </ImageHolder>
+                <div className={styles.nodediv}>
+                  <Heading4 styling={{ color: 'rgb(169, 128, 226)' }}>
+                    Perform Prompts
+                  </Heading4>
+                  <Paragraph styling={{ color: 'rgb(169, 128, 226)' }}>
+                    Encourage every student in the ensemble regardless of the
+                    instrument they play to learn important musical elements.
+                    Students will not be restricted to graduating high school
+                    music only, they will be able to play recognizable melodies
+                    and develop understanding of the bass lines and harmonies.
+                  </Paragraph>
+                </div>
+              </InfoNode>
+            </LeftContain>
+
+            <RightContain>
+              <InfoNode
+                styling={{
+                  backgroundColor: 'rgb(169, 128, 226)',
+                }}
+              >
+                <div className={styles.nodediv}>
+                  <Heading4 styling={{ color: 'rgb(68, 9, 116)' }}>
+                    Create Prompts
+                  </Heading4>
+                  <Paragraph styling={{ color: 'rgb(68, 9, 116)' }}>
+                    Facilitate students creating their own original music in the
+                    context of ensemble repertoire they are learning to perform,
+                    prmoting creativity, and exprssion in students.
+                  </Paragraph>
+                </div>
+                <ImageHolder>
+                  <FaMicrophone
+                    size="3rem"
+                    style={{ color: 'rgb(68, 9, 116)' }}
+                  />
+                </ImageHolder>
+              </InfoNode>
+            </RightContain>
+
+            <LeftContain>
+              <InfoNode
+                styling={{
+                  backgroundColor: 'rgb(68, 9, 116)',
+                }}
+              >
+                <ImageHolder>
+                  <FaComment
+                    size="3rem"
+                    style={{ color: 'rgb(169, 128, 226)' }}
+                  />
+                </ImageHolder>
+                <div className={styles.nodediv}>
+                  <Heading4 styling={{ color: 'rgb(169, 128, 226)' }}>
+                    Respond And Connect to Prompts
+                  </Heading4>
+                  <Paragraph styling={{ color: 'rgb(169, 128, 226)' }}>
+                    Offer opportunities for students to evaluate their own
+                    performances, connect their experiences with those of the
+                    composer or larger cultural and historical contexts, and
+                    reinforce valuable literacy skills through organizing and
+                    sharing their reflections.
                   </Paragraph>
                 </div>
               </InfoNode>
