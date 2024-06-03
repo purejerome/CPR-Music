@@ -1,12 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import Link from 'next/link';
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
 import Layout from '../components/layout';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { Container, FigureCaption } from 'react-bootstrap';
 import {
   FaComment,
   FaLaughBeam,
@@ -17,7 +10,7 @@ import {
 } from 'react-icons/fa';
 import styles from '../styles/index.module.css';
 
-function BackGroundColoredDiv({ children, styling }) {
+export function BackGroundColoredDiv({ children, styling }) {
   //Creates a colored background for a div
   return <div style={styling}>{children}</div>;
 }
@@ -29,9 +22,6 @@ function ImageHolder({ children }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        // marginLeft: '3rem',
-        // marginRight: '3rem',
-        // display: 'inline-block',
         width: 'fit-content',
       }}
     >
@@ -85,7 +75,7 @@ function RightContain({ children, styling }) {
   );
 }
 
-function Section({ children, styling }) {
+export function Section({ children, styling }) {
   // This creates the different sections that hold the info nodes on screen.
   return (
     <div className={styles.higher} style={styling}>
@@ -94,7 +84,7 @@ function Section({ children, styling }) {
   );
 }
 
-function Heading4({ children, styling }) {
+export function Heading4({ children, styling }) {
   //Creates styled headings.
   return (
     <h4 className={styles.headings4} style={styling}>
@@ -103,7 +93,7 @@ function Heading4({ children, styling }) {
   );
 }
 
-function Paragraph({ children, styling }) {
+export function Paragraph({ children, styling }) {
   // Creates styled paragraphs.
   return (
     <p className={styles.paragraphs} style={styling}>
@@ -202,7 +192,6 @@ function Index() {
         </div>
         <div className={styles.container}>
           <Section
-            className={styles.higher}
             styling={{
               display: 'flex',
               flexDirection: 'column',

@@ -97,6 +97,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: default;
+}
+
+.cards:hover{
+    scale: 1.05;
 }
 
 .firstHide{
@@ -111,7 +116,7 @@
 .cardsHidden{
     opacity: 0;
     transform: translateY(40%);
-    transition: all 1.4s;
+    transition: transform 1.7s, opacity 1.4s, scale 0.4s;
 }
 
 .cardsShown{
@@ -136,15 +141,15 @@
     transform: translateX(0);
 }
 
-.cards:nth-child(2){
-    transition-delay: 100ms;
+/* .cards:nth-child(2){
+    transition-delay: transform 100ms;
 }
 .cards:nth-child(3) {
-    transition-delay: 400ms;
+    transition-delay: transform 400ms;
 }
 .cards:nth-child(4) {
-    transition-delay: 600ms;
-}
+    transition-delay: transform 600ms;
+} */
 
 .nodeL {
     display: flex;
