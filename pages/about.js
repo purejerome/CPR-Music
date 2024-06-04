@@ -431,7 +431,7 @@ const collabs = [
   },
 ];
 
-function Collaborators({ collabList }) {
+function Collaborators({ collabList, fullListID }) {
   const collabRef = useRef(null);
   useEffect(() => {
     const collabs = collabRef.current.querySelectorAll('div');
@@ -473,24 +473,40 @@ function Collaborators({ collabList }) {
     return retHTML;
   });
 
+  function open(event) {
+    event.preventDefault();
+    realOpen();
+  }
+
+  function realOpen() {
+    console.log(document.getElementById(fullListID));
+    document.getElementById(fullListID).classList.add(styles.visible);
+  }
+
   return (
     <div className={styles.collabOuterContain}>
       <div className={styles.collabContain} ref={collabRef}>
         {htmlCollabs}
       </div>
+      <a href="#" onClick={open}>
+        click
+      </a>
     </div>
   );
 }
 
-function List({ children, key }) {
-  return (
-    <li className={styles.listContent} key={key}>
-      {children}
-    </li>
-  );
+function List({ children }) {
+  return <li className={styles.listContent}>{children}</li>;
 }
 
-function FullListContainer({ collabList }) {
+function FullListContainer({ collabList, id }) {
+  const container = useRef(null);
+
+  function del() {
+    if (container) {
+      container.current.classList.remove(styles.visible);
+    }
+  }
   let htmlCollabs = collabList.map((person, id) => {
     let retHTML = (
       <List key={id}>
@@ -507,8 +523,11 @@ function FullListContainer({ collabList }) {
     return retHTML;
   });
   return (
-    <div className={styles.fullListContain}>
-      <div className={styles.innterFullList}>
+    <div className={styles.fullListContain} id={id} ref={container}>
+      <div className={styles.innerFullList}>
+        <button className={styles.exitButton} onClick={del}>
+          &#10006;
+        </button>
         <ul>{htmlCollabs}</ul>
       </div>
     </div>
@@ -543,7 +562,7 @@ function About() {
   });
   return (
     <main className={styles.para}>
-      <FullListContainer collabList={collabs}></FullListContainer>
+      <FullListContainer collabList={collabs} id="collabs"></FullListContainer>
       <Layout>
         <div className={styles.header}>
           <h1>About MusicCPR</h1>
@@ -702,7 +721,10 @@ function About() {
               </div>
               <FlexibleImage src="JMU.jpg" />
             </ParagraphSection>
-            <Collaborators collabList={collabs}></Collaborators>
+            <Collaborators
+              collabList={collabs}
+              fullListID="collabs"
+            ></Collaborators>
           </Section>
         </div>
       </Layout>

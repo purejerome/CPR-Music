@@ -124,12 +124,48 @@
 
 .fullListContain{
     position: fixed;
+    pointer-events: none;
     --scroll: 0px;
     top: var(--scroll);
     width: 100vw;
     height: 100vh;
     z-index: 7;
     background-color: rgba(27, 0, 201, 0.274);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.innerFullList{
+    position: relative;
+    pointer-events: visible;
+    width: 50%;
+    height: fit-content;
+    max-height: 80%;
+    background-color: white;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.visible{
+    display: flex;
+}
+
+.exitButton{
+    position: sticky;
+    top: 2px;
+    left: 2px;
+    border-radius: 100px;
+    border-color: transparent;
+    width: 36px;
+    height: 36px;
+    background-color: red;
+    border-style: none;
+}
+
+.exitButton:active{
+    background-color: rgb(120, 2, 2);
 }
 
 
