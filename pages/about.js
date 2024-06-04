@@ -326,15 +326,118 @@ import { Section, Paragraph } from './index';
   /* </Container> */
 }
 
-function Collaborators() {
+const collabs = [
+  {
+    name: 'Abdullah Mohammed Ali',
+    profession: 'Undergraduate Student, James Madison University',
+  },
+  {
+    name: 'Alex Dumouchelle',
+    profession: 'Undergraduate Student, James Madison University',
+    link: 'https://portfolium.com/AlexDumo',
+  },
+  {
+    name: 'Jerome Donfack',
+    profession: 'Undergraduate Student, James Madison University',
+  },
+  {
+    name: 'Zoey Fox',
+    profession: 'Consultant',
+  },
+  {
+    name: 'Jonah Giblin',
+    profession: 'Undergraduate Student, James Madison University',
+  },
+  {
+    name: 'Benjamin Guerrero, MM',
+    profession:
+      'Preparing Future Faculty Fellow, James Madison University; Ph.D. Candidate, University of Rochester',
+    link: 'http://benguerrero.com/',
+  },
+  {
+    name: 'Luke Hennessy',
+    profession: 'Undergraduate, James Madison University',
+  },
+  {
+    name: 'Matt Wolffe',
+    profession: 'Undergraduate, James Madison University',
+    link: 'https://mfwolffe.github.io/',
+  },
+  {
+    name: 'Thomas Hassett',
+    profession:
+      'Undergraduate Student Alumnus, School of Music; Innovation Leader, Center for Inclusive Music Engagement; James Madison University',
+  },
+  {
+    name: 'Chris Hopkins',
+    profession: 'Undergraduate Student, James Madison University',
+    link: 'https://www.linkedin.com/in/chris-hopkins-382238221/',
+  },
+  {
+    name: 'William Jedrzejczak',
+    profession: 'Undergraduate Student, James Madison University',
+  },
+  {
+    name: 'Heidi Lucas, DMA',
+    profession:
+      'Visiting Assistant Professor of Brass and Music Education, University of Delaware',
+  },
+  {
+    name: 'Brandon McKean',
+    profession:
+      'Systems Administrator, Department of Computer Science, James Madison University',
+  },
+  {
+    name: 'Pete Morris',
+    profession:
+      'Systems Administrator, Department of Computer Science, James Madison University',
+  },
+  {
+    name: 'Zamua Nasrawt',
+    profession: 'Consulting Musician and Web Developer',
+  },
+  {
+    name: 'Liem Nguyen',
+    profession: 'Undergraduate Student, James Madison University',
+    link: 'https://github.com/LiemKN/',
+  },
+  {
+    name: 'Meara Patterson',
+    profession: 'Undergraduate Student, James Madison University',
+  },
+  {
+    name: 'Phil Riley',
+    profession: 'Lecturer in Computer Science, James Madison University',
+    link: 'https://www.jmu.edu/cise/people/faculty/riley-philip.shtml',
+  },
+  {
+    name: 'Isaiah Ortiz',
+    profession: 'Undergraduate Student, James Madison University',
+  },
+  {
+    name: 'Nathan Self',
+    profession: 'Consulting Musician and Web Developer',
+  },
+  {
+    name: 'Paweł W. Woźniak, Ph.D.',
+    profession:
+      'Associate Professor, Interaction Design and Software Engineering division, Department of Computer Science and Engineering, Chalmers University',
+    link: 'http://pawelwozniak.eu/',
+  },
+  {
+    name: 'Lauren Yu',
+    profession: 'Web Developer',
+    link: 'https://laurenyz.github.io/portfolio/',
+  },
+];
+
+function Collaborators({ collabList }) {
   const collabRef = useRef(null);
   useEffect(() => {
     const collabs = collabRef.current.querySelectorAll('div');
 
     let count = 0;
-    console.log('max: ' + (collabs.length - 1));
     function changeFocus() {
-      console.log(count);
       collabs[count].classList.remove(styles.collabShow);
       if (count == collabs.length - 1) {
         count = 0;
@@ -347,127 +450,23 @@ function Collaborators() {
     collabs.forEach((collab) => collab.classList.add(styles.collabHide));
     collabs[0].classList.add(styles.collabShow);
 
-    console.log(collabs);
-
     const interval = setInterval(changeFocus, 7000); // Repeat every 7 seconds
   }, []);
-  const collabs = [
-    {
-      name: 'Abdullah Mohammed Ali',
-      profession: 'Undergraduate Student, James Madison University',
-    },
-    {
-      name: 'Alex Dumouchelle',
-      profession: 'Undergraduate Student, James Madison University',
-      link: 'https://portfolium.com/AlexDumo',
-    },
-    {
-      name: 'Jerome Donfack',
-      profession: 'Undergraduate Student, James Madison University',
-    },
-    {
-      name: 'Zoey Fox',
-      profession: 'Consultant',
-    },
-    {
-      name: 'Jonah Giblin',
-      profession: 'Undergraduate Student, James Madison University',
-    },
-    {
-      name: 'Benjamin Guerrero, MM',
-      profession:
-        'Preparing Future Faculty Fellow, James Madison University; Ph.D. Candidate, University of Rochester',
-      link: 'http://benguerrero.com/',
-    },
-    {
-      name: 'Luke Hennessy',
-      profession: 'Undergraduate, James Madison University',
-    },
-    {
-      name: 'Matt Wolffe',
-      profession: 'Undergraduate, James Madison University',
-      link: 'https://mfwolffe.github.io/',
-    },
-    {
-      name: 'Thomas Hassett',
-      profession:
-        'Undergraduate Student Alumnus, School of Music; Innovation Leader, Center for Inclusive Music Engagement; James Madison University',
-    },
-    {
-      name: 'Chris Hopkins',
-      profession: 'Undergraduate Student, James Madison University',
-      link: 'https://www.linkedin.com/in/chris-hopkins-382238221/',
-    },
-    {
-      name: 'William Jedrzejczak',
-      profession: 'Undergraduate Student, James Madison University',
-    },
-    {
-      name: 'Heidi Lucas, DMA',
-      profession:
-        'Visiting Assistant Professor of Brass and Music Education, University of Delaware',
-    },
-    {
-      name: 'Brandon McKean',
-      profession:
-        'Systems Administrator, Department of Computer Science, James Madison University',
-    },
-    {
-      name: 'Pete Morris',
-      profession:
-        'Systems Administrator, Department of Computer Science, James Madison University',
-    },
-    {
-      name: 'Zamua Nasrawt',
-      profession: 'Consulting Musician and Web Developer',
-    },
-    {
-      name: 'Liem Nguyen',
-      profession: 'Undergraduate Student, James Madison University',
-      link: 'https://github.com/LiemKN/',
-    },
-    {
-      name: 'Meara Patterson',
-      profession: 'Undergraduate Student, James Madison University',
-    },
-    {
-      name: 'Phil Riley',
-      profession: 'Lecturer in Computer Science, James Madison University',
-      link: 'https://www.jmu.edu/cise/people/faculty/riley-philip.shtml',
-    },
-    {
-      name: 'Isaiah Ortiz',
-      profession: 'Undergraduate Student, James Madison University',
-    },
-    {
-      name: 'Nathan Self',
-      profession: 'Consulting Musician and Web Developer',
-    },
-    {
-      name: 'Paweł W. Woźniak, Ph.D.',
-      profession:
-        'Associate Professor, Interaction Design and Software Engineering division, Department of Computer Science and Engineering, Chalmers University',
-      link: 'http://pawelwozniak.eu/',
-    },
-    {
-      name: 'Lauren Yu',
-      profession: 'Web Developer',
-      link: 'https://laurenyz.github.io/portfolio/',
-    },
-  ];
 
-  let htmlCollabs = collabs.map((person, id) => {
+  let htmlCollabs = collabList.map((person, id) => {
     let retHTML = (
       <div key={id}>
         <Paragraph>
-          {person.link ? (
-            <a target="_blank" rel="noopener noreferrer" href={person.link}>
-              {person.name}
-            </a>
-          ) : (
-            person.name
-          )}
-          {' (' + person.profession + ')'}
+          <span>
+            {person.link ? (
+              <a target="_blank" rel="noopener noreferrer" href={person.link}>
+                {person.name}
+              </a>
+            ) : (
+              person.name
+            )}
+            {' (' + person.profession + ')'}
+          </span>
         </Paragraph>
       </div>
     );
@@ -478,6 +477,39 @@ function Collaborators() {
     <div className={styles.collabOuterContain}>
       <div className={styles.collabContain} ref={collabRef}>
         {htmlCollabs}
+      </div>
+    </div>
+  );
+}
+
+function List({ children, key }) {
+  return (
+    <li className={styles.listContent} key={key}>
+      {children}
+    </li>
+  );
+}
+
+function FullListContainer({ collabList }) {
+  let htmlCollabs = collabList.map((person, id) => {
+    let retHTML = (
+      <List key={id}>
+        {person.link ? (
+          <a target="_blank" rel="noopener noreferrer" href={person.link}>
+            {person.name}
+          </a>
+        ) : (
+          person.name
+        )}
+        {' (' + person.profession + ')'}
+      </List>
+    );
+    return retHTML;
+  });
+  return (
+    <div className={styles.fullListContain}>
+      <div className={styles.innterFullList}>
+        <ul>{htmlCollabs}</ul>
       </div>
     </div>
   );
@@ -500,8 +532,18 @@ function FlexibleImage({ src }) {
 }
 
 function About() {
+  useEffect(() => {
+    let scroller = document.querySelector('main');
+    let scrolls = document.querySelectorAll(`.${styles.fullListContain}`);
+    scroller.addEventListener('scroll', () => {
+      scrolls.forEach((scroll) => {
+        scroll.style.setProperty('--scroll', scroller.scrollTop + 'px');
+      });
+    });
+  });
   return (
     <main className={styles.para}>
+      <FullListContainer collabList={collabs}></FullListContainer>
       <Layout>
         <div className={styles.header}>
           <h1>About MusicCPR</h1>
@@ -660,7 +702,7 @@ function About() {
               </div>
               <FlexibleImage src="JMU.jpg" />
             </ParagraphSection>
-            <Collaborators></Collaborators>
+            <Collaborators collabList={collabs}></Collaborators>
           </Section>
         </div>
       </Layout>
